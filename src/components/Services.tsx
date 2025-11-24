@@ -1,35 +1,7 @@
-import React, { useRef } from 'react';
-import { ArrowRight, ArrowLeft } from 'lucide-react';
+import { useRef } from 'react';
 
-const services = [
-  "Consular support service",
-  "Fingerprint service",
-  "Document legalization assistance",
-  "Visa application support",
-  "Power of attorney (POA)",
-  "Travel arrangements",
-  "Ethiopian Passport & Ethiopian Origin ID (Yellow Card) assistance",
-  "Travel for Good letter assistance",
-  "Investment & Bank support letter assistance",
-  "TIN & Pension letter assistance",
-  "Laissez-passer applications assistance",
-  "No-Objection letters (visa waivers)",
-  "Vital registration & NGO registration assistance at Ethiopian Embassy",
-  "Additional lawful services in compliance with Canadian Law",
-  "Personal & Small Business Tax (T1)",
-  "Personal tax return",
-  "Uber/Lyft tax return",
-  "GST/HST tax filing",
-  "PR Application Assistance",
-  "Citizenship Assistance",
-  "Visitor visa application Assistance",
-  "Study visa application Assistance",
-  "Government paperwork: Letters for CRA, Service Ontario, Service Canada",
-  "Appointment booking",
-  "Document scanning",
-  "Dispute traffic & parking tickets",
-  "Finding the best Insurance Quote",
-];
+import { ArrowRight, ArrowLeft } from 'lucide-react';
+import services from '../data/services';
 
 export default function ServicesCarousel() {
   const carouselRef = useRef<HTMLDivElement>(null);
@@ -76,20 +48,25 @@ export default function ServicesCarousel() {
                 key={pageIndex}
                 className="grid grid-cols-3 grid-rows-3 gap-6 snap-start flex-shrink-0"
               >
-                {page.map((service, index) => (
-                  <div
-                    key={index}
-                    className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 flex flex-col justify-center"
-                  >
-                    <h3 className="text-lg font-semibold text-[#0A2540] mb-2">{service}</h3>
-                    <button
-                      className="mt-auto text-[#0099CC] font-semibold flex items-center space-x-2 group-hover:space-x-3 transition-all text-sm"
+                {page.map((service, index) => {
+                  const slug = service.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+                  return (
+                    <div
+                      id={`service-${slug}`}
+                      key={index}
+                      className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 flex flex-col justify-center"
                     >
-                      <span>Learn More</span>
-                      <ArrowRight size={16} strokeWidth={2} />
-                    </button>
-                  </div>
-                ))}
+                      <h3 className="text-lg font-semibold text-[#0A2540] mb-2">{service}</h3>
+                      <button
+                        onClick={() => { window.location.hash = '#booking'; }}
+                        className="mt-auto text-[#0099CC] font-semibold flex items-center space-x-2 group-hover:space-x-3 transition-all text-sm"
+                      >
+                        <span>Learn More</span>
+                        <ArrowRight size={16} strokeWidth={2} />
+                      </button>
+                    </div>
+                  );
+                })}
               </div>
             ))}
           </div>

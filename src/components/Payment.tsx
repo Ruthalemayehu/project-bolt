@@ -50,15 +50,30 @@ export default function Payment() {
               <p className="text-gray-700 mb-6">
                 All payments are processed securely. We also accept cash and e-Transfer.
               </p>
-              <button
-                onClick={() => {
-                  const element = document.getElementById('booking');
-                  if (element) element.scrollIntoView({ behavior: 'smooth' });
-                }}
-                className="bg-[#0A2540] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#0099CC] transition-all shadow-lg"
-              >
-                Pay Online Now
-              </button>
+              {/* Payment Card Form */}
+              <form className="max-w-md mx-auto bg-white rounded-xl shadow p-6 space-y-4 border border-gray-100">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Cardholder Name</label>
+                  <input type="text" placeholder="Full Name" className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0099CC]" />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Card Number</label>
+                  <input type="text" placeholder="1234 5678 9012 3456" maxLength={19} className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0099CC]" />
+                </div>
+                <div className="flex space-x-4">
+                  <div className="flex-1">
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Expiry</label>
+                    <input type="text" placeholder="MM/YY" maxLength={5} className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0099CC]" />
+                  </div>
+                  <div className="flex-1">
+                    <label className="block text-sm font-medium text-gray-700 mb-1">CVC</label>
+                    <input type="text" placeholder="123" maxLength={4} className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0099CC]" />
+                  </div>
+                </div>
+                <button type="submit" className="w-full bg-[#0A2540] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#0099CC] transition-all shadow-lg mt-2">
+                  Pay Now
+                </button>
+              </form>
             </div>
           </div>
 

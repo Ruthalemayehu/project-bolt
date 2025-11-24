@@ -1,6 +1,7 @@
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import Logo from "../asset/logo.png";
+import services from '../data/services';
 
 interface HeaderProps {
   isScrolled: boolean;
@@ -37,7 +38,7 @@ export default function Header({ isScrolled }: HeaderProps) {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
-          {['home', 'services', 'pricing', 'about', 'faq'].map((item) => (
+          {['home', 'pricing', 'about', 'faq'].map((item) => (
             <button
               key={item}
               onClick={() => scrollToSection(item)}
@@ -48,6 +49,54 @@ export default function Header({ isScrolled }: HeaderProps) {
               {item.charAt(0).toUpperCase() + item.slice(1)}
             </button>
           ))}
+
+          {/* Services dropdown on hover (vertical list with drill-down) */}
+          <div className="relative group">
+            <button
+              onClick={() => scrollToSection('services')}
+              className={`transition-colors ${
+                isScrolled ? 'text-[#0A2540] hover:text-[#0099CC]' : 'text-white hover:text-[#FFD166]'
+              }`}
+            >
+              Services
+            </button>
+
+            <div className="invisible opacity-0 pointer-events-none group-hover:visible group-hover:opacity-100 group-hover:pointer-events-auto hover:visible hover:opacity-100 hover:pointer-events-auto transition-all duration-200 absolute left-0 top-full mt-3 w-64 bg-white rounded-xl shadow-lg border border-gray-100 z-50">
+              <ul className="p-2">
+                {services.slice(0, 9).map((s, i) => {
+                  const slug = s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+                  return (
+                    <li key={i} className="relative group/list">
+                      <button
+                        onClick={() => {
+                          const anchor = `#service-${slug}`;
+                          window.location.hash = anchor;
+                        }}
+                        className="w-full text-left px-3 py-2 text-sm text-[#0A2540] hover:bg-gray-50 rounded-md flex items-center justify-between"
+                      >
+                        <span>{s}</span>
+                        <span className="text-xs text-gray-400">›</span>
+                      </button>
+
+                      {/* Drill-down panel shown when hovering the list item */}
+                      <div className="invisible opacity-0 pointer-events-none group-list-hover:visible group-list-hover:opacity-100 group-list-hover:pointer-events-auto hover:visible hover:opacity-100 hover:pointer-events-auto transition-all duration-150 absolute left-full top-0 ml-2 w-64 bg-white rounded-md shadow-md border border-gray-100 p-3">
+                        <p className="text-sm text-gray-600">Click to view details for "{s}" on the Services page.</p>
+                        <div className="mt-2">
+                          <button
+                            onClick={() => { window.location.hash = `#service-${slug}`; }}
+                            className="text-xs text-[#0099CC] font-semibold"
+                          >
+                            Go to service
+                          </button>
+                        </div>
+                      </div>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          </div>
+
           <button
             onClick={() => scrollToSection('booking')}
             className="bg-[#FFD166] text-[#0A2540] px-6 py-2 rounded-lg font-semibold hover:bg-[#FFC233] transition-all shadow-lg"

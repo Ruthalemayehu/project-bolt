@@ -9,8 +9,7 @@ export default function Mission() {
             Our Mission
           </h2>
           <p className="text-xl text-gray-700 leading-relaxed">
-            To make tax filing and immigration paperwork simple, stress-free, and affordable
-            for Ethiopian & Eritrean families in Ontario.
+            Our mission is to support our community by making documentation, consular, and tax services clear, easy, and stress-free. We simplify complex forms and government processes, provide accurate and reliable guidance, and carry out every service with honesty, respect, and care. Our goal is to ensure every client feels comfortable, confident, and well supported from start to finish.
           </p>
         </div>
 

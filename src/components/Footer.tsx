@@ -10,7 +10,7 @@ export default function Footer() {
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>
-            <h3 className="text-2xl font-bold mb-4">LH Services</h3>
+            <h3 className="text-2xl font-bold mb-4">Elite Documentation and Tax Services</h3>
             <p className="text-white/80 leading-relaxed">
               Your trusted partner for tax filing, immigration paperwork, and community services
               in Ontario.
@@ -21,22 +21,22 @@ export default function Footer() {
             <h4 className="text-lg font-semibold mb-4">Contact Information</h4>
             <div className="space-y-3">
               <a
-                href="mailto:info@lhservices.ca"
+                href="mailto:yodedoc@gmail.com"
                 className="flex items-center space-x-3 text-white/80 hover:text-white transition-colors"
               >
                 <Mail className="w-5 h-5" />
-                <span>info@lhservices.ca</span>
+                <span>info@EliteDocumentation.ca</span>
               </a>
               <a
-                href="tel:+14165551234"
+                href="tel:+1 (437) 383 0444"
                 className="flex items-center space-x-3 text-white/80 hover:text-white transition-colors"
               >
                 <Phone className="w-5 h-5" />
-                <span>(416) 555-1234</span>
+                <span>+1 (437) 383 0444</span>
               </a>
               <div className="flex items-start space-x-3 text-white/80">
                 <MapPin className="w-5 h-5 flex-shrink-0 mt-1" />
-                <span>123 Community Street<br />Toronto, ON M5H 2N2</span>
+                <span>40 Asquith Ave<br />Toronto, ON M4W 1J6</span>
               </div>
               <div className="flex items-start space-x-3 text-white/80">
                 <Clock className="w-5 h-5 flex-shrink-0 mt-1" />
@@ -52,7 +52,7 @@ export default function Footer() {
             <h4 className="text-lg font-semibold mb-4">Follow Us</h4>
             <div className="flex space-x-4 mb-6">
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/profile.php?id=61583824753007"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-white/10 hover:bg-white/20 p-3 rounded-full transition-all"
@@ -61,16 +61,7 @@ export default function Footer() {
                 <Facebook className="w-6 h-6" />
               </a>
               <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-white/10 hover:bg-white/20 p-3 rounded-full transition-all"
-                aria-label="Instagram"
-              >
-                <Instagram className="w-6 h-6" />
-              </a>
-              <a
-                href="https://wa.me/14165551234"
+                href="https://wa.me/qr/U7XSRV2TPDXRA1"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-white/10 hover:bg-white/20 p-3 rounded-full transition-all"
@@ -93,7 +84,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-white/20 pt-8 text-center text-white/80">
-          <p>&copy; 2025 LH Services. All rights reserved.</p>
+          <p>&copy; 2025 Elite Documentation and Tax Services. All rights reserved.</p>
         </div>
       </div>
     </footer>
